@@ -303,13 +303,6 @@ func (c *Collector) Collect(ch chan<- prometheus.Metric) {
 		ch <- prometheus.MustNewConstMetric(ipPrefixClassDesc, prometheus.GaugeValue, 1, stationStatusResponse.Data.IpPrefixClass)
 	}
 
-	ledSettingResponse, err := c.Station.GetLedSetting()
-	if err != nil {
-		log.With("error", err.Error()).Error("Failed to get LED setting")
-	} else if ledSettingResponse.Data != nil {
-		ch <- prometheus.MustNewConstMetric(statusLedEnabledDesc, prometheus.GaugeValue, bool2float64(ledSettingResponse.Data.Led == "true"))
-	}
-
 	stationAboutResponse, err := c.Station.GetStationAbout()
 	if err != nil {
 		log.With("error", err.Error()).Error("Failed to get station about information")
