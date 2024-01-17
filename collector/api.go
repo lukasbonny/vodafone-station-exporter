@@ -102,7 +102,7 @@ type StationStatusReponse struct {
 	Data    *StationStatusData `json:"data"`
 }
 
-type StationStatusData struct {
+/*type StationStatusData struct {
 	DateAndTime     string   `json:"dateandtime"`
 	FirewallStatus  string   `json:"firewallstatus"`
 	LanIpv4         string   `json:"lanipv4"`
@@ -145,7 +145,7 @@ type StationStatusData struct {
 	IPAddressRT     []string `json:"IPAddressRT"`
 	IpPrefixClass   string   `json:"IpPrefixClass"`
 }
-
+*/
 
 type StationAboutResponse struct {
 	Error   string            `json:"error"`
