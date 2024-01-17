@@ -146,42 +146,6 @@ type StationStatusData struct {
 	IpPrefixClass   string   `json:"IpPrefixClass"`
 }
 
-type CallLog struct {
-	Lines map[string]*PhoneNumberCallLog
-	Line0 *PhoneNumberCallLog `json:"0"`
-	Line1 *PhoneNumberCallLog `json:"1"`
-	Token string              `json:"token"`
-}
-
-type PhoneNumberCallLog struct {
-	Error   string       `json:"error"`
-	Message string       `json:"message"`
-	Data    *CallLogData `json:"data"`
-}
-
-type CallLogData struct {
-	Entries []*CallLogEntry `json:"CallTbl"`
-}
-
-type CallLogEntry struct {
-	Id             string `json:"__id"`
-	EndTime        string `json:"endTime"`
-	StartTime      string `json:"startTime"`
-	ExternalNumber string `json:"externalNumber"`
-	Direction      string `json:"Direction"`
-	Type           string `json:"type"`
-}
-
-type LedSettingResponse struct {
-	Error   string   `json:"error"`
-	Message string   `json:"message"`
-	Data    *LedData `json:"data"`
-	Token   string   `json:"token"`
-}
-
-type LedData struct {
-	Led string `json:"led"`
-}
 
 type StationAboutResponse struct {
 	Error   string            `json:"error"`
@@ -199,21 +163,15 @@ type SoftwareInfo struct {
 	License string `json:"license"`
 }
 
-type PhonenumbersResponse struct {
-	Error   string            `json:"error"`
-	Message string            `json:"message"`
-	Data    *PhonenumbersData `json:"data"`
-}
-
-type PhonenumbersData struct {
-	LineNumber1      string `json:"LineNumber1"`
-	Callnumber1      string `json:"callnumber1"`
-	LineStatus1      string `json:"LineStatus1"`
-	AdditionalInfos1 string `json:"AdditionalInfos1"`
-	LineNumber2      string `json:"LineNumber2"`
-	Callnumber2      string `json:"callnumber2"`
-	LineStatus2      string `json:"LineStatus2"`
-	AdditionalInfos2 string `json:"AdditionalInfos2"`
+type WanStatusData struct {
+	Ipv4	 string     `json:"ipv4"`
+	Mac           string     `json:"mac_address"`
+	Duration	 string     `json:"duration"`
+	DurationIpv6  string     `json:"durationIpv6"`
+	Expires       string     `json:"expires"`
+	Ipv4Dns       string     `json:"ipv4_dns"`
+	IPAddressV6  []string     `json:"IPAddress_v6"`
+	DNSTblRT        []string   `json:"DNSTblRT"`
 }
 
 func NewVodafoneStation(stationUrl, password string) *VodafoneStation {
