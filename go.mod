@@ -1,4 +1,4 @@
-module github.com/fluepke/vodafone-station-exporter
+module github.com/lukasbonny/vodafone-station-exporter
 
 go 1.15
 
